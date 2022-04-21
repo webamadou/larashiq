@@ -1,0 +1,86 @@
+:root {
+    --purple: #3f51b5;
+    --pink: #ea118d;
+    --gray1: #f3f3f3;
+    --gray2: #e5e5e5;
+    --gray3: #838383;
+    --gray4: #c4c4c4;
+}
+a {
+    text-decoration: none;
+}
+*:focus,
+button:focus,
+.btn-check:focus + .btn,
+.btn:focus,
+input:focus,
+select:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+.btn-primary, .btn-primary:hover {
+    color: #fff;
+    background-color: var(--purple);
+    border-color: #0a175b;
+}
+.btn-secondary {
+    color: #fff;
+    background-color: var(--gray3);
+    border-color: #494949;
+}
+#login-wrapper .card{
+    border-bottom: 4px solid var(--pink);
+}
+body {
+    font-family: "lato", sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    color: #000;
+    background: #fff;
+}
+a {
+    text-decoration: none;
+    color: var(--purple);
+}
+h1,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    color: #474747;
+}
+.logo-link img {
+    width: auto;
+    height: 10vh;
+    max-height: 54px;
+}
+.header-container {
+    background: #f3f3f3;
+}
+a#dropdownUser2 {
+    background: #dedede;
+    padding: 0 1rem 0 1rem;
+    border-radius: 6px;
+    line-height: 1.5;
+}
+.menu-container nav a {
+    display: inline-block;
+    margin: 0 0 0 0.9rem;
+    background: #fff;
+}
+.menu-container nav a.active {
+    border-bottom: 1px solid #ea118d;
+}
+main.container.main-container {
+    min-height: 100vh;
+}
+#sidebars-container {
+    background: var(--gray2);
+    border-radius: 6px;
+}
+#sidebars-container ul li button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--gray3);
+}
