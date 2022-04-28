@@ -49,11 +49,11 @@
             @else
               <ul class="nav">
                 <li class="nav-item">
-                  <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline nav-link active"><i class="fa fa-user"></i> {{ __('common_links.login',)}}</a>
+                  <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline nav-link active"><i class="fa fa-user"></i> {{ __('user_form_terms.login',)}}</a>
                 </li>
                 <li class="nav-item">
                   @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline nav-link active"><i class="fa-light fa-user-plus"></i> {{ __('common_links.register') }}</a>
+                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline nav-link active"><i class="fa fa-user-plus"></i> {{ __('user_form_terms.register') }}</a>
                   @endif
                 </li>
               </ul> 
