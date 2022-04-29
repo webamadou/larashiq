@@ -37,7 +37,7 @@
             @auth
               <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
                 <span>Administrator</span>
-                <img src="{{ asset('images/profile_placeholder.jpeg') }}" alt="mdo" width="32" height="32" class="rounded-circle"> 
+                <img src="{{ asset('images/profile_placeholder.jpeg') }}" alt="mdo" width="32" height="32" class="rounded-circle">
               </a>
               <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2" style="">
                 <li><a class="dropdown-item" href="#">New project...</a></li>
@@ -56,7 +56,7 @@
                     <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline nav-link active"><i class="fa fa-user-plus"></i> {{ __('user_form_terms.register') }}</a>
                   @endif
                 </li>
-              </ul> 
+              </ul>
             @endauth
           @endif
         </div>
@@ -86,7 +86,8 @@
     @endauth
     <main class="container main-container">
       <div class="row">
-        <div class="container body-container col-12 mx-0 px-4">
+        <x-sidebar />
+        <div class="container body-container col-9 mx-0 px-4">
           <h1>@yield('page-title')</h1>
           @yield('content')
         </div>

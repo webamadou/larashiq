@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.admin-no-sidebar')
 
 @section('content')
 <div class="container" id="login-wrapper">

@@ -47,6 +47,36 @@ h6 {
     font-weight: 600;
     color: #474747;
 }
+/* BOOTSTRAP CUSTOMISATION */
+.btn {
+  padding: 0.1rem 1.1rem;
+}
+.alert {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-size: 0.8rem;
+}
+.form-control,
+select.form-select {
+  padding: 0.4rem 2rem;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+.table > :not(caption) > * > * {
+  padding: 0.2rem 0.5rem;
+  font-size: 0.9rem;
+}
+label.form-label {
+  font-size: 0.9rem;
+}
+.pagination a.page-link {
+  font-size: 0.7rem;
+}
+div.dataTables_wrapper div.dataTables_info {
+  padding-top: 0.85em;
+  font-size: 0.9rem;
+}
+/* BOOTSTRAP CUSTOMISATION */
 .logo-link img {
     width: auto;
     height: 10vh;
