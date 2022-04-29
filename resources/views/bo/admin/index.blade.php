@@ -1,4 +1,4 @@
-@extends('layouts.admin-with-sidebar')
+@extends('layouts.admin')
 
 @section('content')
   <h1>The page's title</h1>
