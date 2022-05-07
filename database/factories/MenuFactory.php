@@ -21,7 +21,7 @@ class MenuFactory extends Factory
 
         return [
             'name' => $this->faker->words(2, true),
-            'parent' => $parent,
+            'parent_id' => $parent,
             'visible' => $this->faker->numberBetween(0, 1),
             'public' => $this->faker->boolean(),
         ];
