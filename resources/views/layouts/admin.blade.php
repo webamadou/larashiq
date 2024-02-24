@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <title>{{ config('app.name', 'Webamadou') }}</title>
+    <title>{{ config('app.name', 'Immoplus') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -35,7 +35,7 @@
       </div>
     </main>
     <footer class="py-3 my-4">
-        <p class="text-center text-muted">© 2021 webamadou.co</p>
+        <p class="text-center text-muted"></p>
     </footer>
 </body>
 </html>

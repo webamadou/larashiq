@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
+@section('title') {{ @$title}} @endsection
 @section('content')
 <div class="container">
+    <h1>This is a test</h1>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -14,7 +16,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Vous êtes connecté!') }}
                 </div>
             </div>
         </div>

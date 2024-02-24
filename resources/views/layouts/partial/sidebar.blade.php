@@ -8,7 +8,7 @@ dd($menus)
   </a>
   <ul class="list-unstyled ps-0">
     <li class="mb-1">
-      <button class="align-items-center btn btn-toggle collapsed px-0 rounded text-lg-start w-100" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+      <button class="align-items-center btn btn-toggle collapsed px-0 rounded text-lg-start w-100" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true" aria-label="Accueil">
         Home
       </button>
       <div class="collapse show" id="home-collapse">

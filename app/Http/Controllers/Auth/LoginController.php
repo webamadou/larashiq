@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -27,6 +28,11 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+    public const ADMIN_PANEL_ROLES = [
+        Role::SUPER_ADMIN,
+        Role::ADMIN,
+        Role::SUPER_PUBLISHER,
+    ];
 
     /**
      * Create a new controller instance.
@@ -36,5 +42,17 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * @return string
+     */
+    public function redirectTo(): string
+    {
+        if ($this->guard()->user()->hasRole(self::ADMIN_PANEL_ROLES)) {
+            return '/admin';
+        }
+
+        return '/home';
     }
 }

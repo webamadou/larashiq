@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Menu;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,8 @@ class MenuSeeder extends Seeder
      */
     public function run()
     {
-        //
+        foreach (Menu::getDefaultMenus() as $key => $menu) {
+            Menu::factory()->create(['name' => $menu, 'visible' => 1, 'menu_position' => 1]);
+        }
     }
 }

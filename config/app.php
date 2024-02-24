@@ -82,7 +82,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'fr',
 
     /*
     |--------------------------------------------------------------------------
@@ -163,11 +163,15 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Jenssegers\Agent\AgentServiceProvider::class,
 
+        /*
+         * Bugsnag integration
+         */
+        Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
         /*
          * Package Service Providers...
          */
-
         /*
          * Application Service Providers...
          */
@@ -179,6 +183,11 @@ return [
 
         App\Providers\MenuServiceProvider::class,
 
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
+
+        'Intervention\Image\ImageServiceProvider',
+
+        Yajra\DataTables\DataTablesServiceProvider::class,
     ],
 
     /*
@@ -194,6 +203,10 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Image' => 'Intervention\Image\Facades\Image',
+        'RoleModel' => App\Models\Role::class,
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
+        'Share' => Jorenvh\Share\ShareFacade::class,
     ])->toArray(),
 
 ];

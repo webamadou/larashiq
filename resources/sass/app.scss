@@ -5,6 +5,306 @@
 @import "variables";
 
 // Bootstrap
-@import "~bootstrap/scss/bootstrap";
+@import "bootstrap/scss/bootstrap";
+@import "animate.css";
+@import "@mdi/font/css/materialdesignicons.min.css";
+@import "~pretty-checkbox/src/pretty-checkbox.scss";
 
-@import "node_modules/font-awesome/scss/font-awesome.scss";
+// maptiler integration
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+/* Checkbox styles */
+
+$black: #904296;
+$blue: #904296;
+$green: #329e78;
+$grey: #d6d6d6;
+$red: #dd3c3a;
+$white: #ffffff;
+
+$border-radius: 3px;
+
+@mixin checkbox($color) {
+    margin-right: 1rem;
+    padding-left: 1.75rem;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+
+        &:focus ~ span {
+            border: 2px solid lighten($black, 50%);
+        }
+
+        &:focus:checked ~ span {
+            border: 2px solid darken($color, 15%);
+        }
+
+        &:checked ~ span {
+            color: $white;
+            background: $color
+                url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnIHdpZHRoPSIxMiIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgMTIgOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiAgPHBhdGggZD0iTTQuNTc1IDguOTc3cy0uNDA0LS4wMDctLjUzNi0uMTY1TC4wNTcgNS42NGwuODI5LTEuMjI3TDQuNDcgNy4yNjggMTAuOTIxLjA4NmwuOTIzIDEuMTAzLTYuODYzIDcuNjRjLS4xMzQtLjAwMy0uNDA2LjE0OC0uNDA2LjE0OHoiIGZpbGw9IiNGRkYiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPg0KPC9zdmc+)
+                50% 40% no-repeat;
+            border: 2px solid $color;
+        }
+    }
+
+    span {
+        border-radius: $border-radius;
+        position: absolute;
+        left: 0;
+        top: -2px;
+        width: 1rem;
+        height: 1rem;
+        background-color: lighten($black, 65%);
+        border: 2px solid lighten($black, 65%);
+        pointer-events: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+}
+
+label.checkbox {
+    @include checkbox($green);
+
+    &.blue {
+        @include checkbox($blue);
+    }
+
+    &.red {
+        @include checkbox($red);
+    }
+}
+
+// lockesh checkboxes customizations
+
+// If you felt the name is not-so-pretty,
+// you can always change!
+
+$pretty--class-name: pretty;
+
+// are you sure, you wanna change my handpicked
+// awesome super duper colors?
+
+$pretty--color-default: #bdc3c7;
+$pretty--color-primary: #904296;
+$pretty--color-info: #904296;
+$pretty--color-success: #5cb85c;
+$pretty--color-warning: #f0ad4e;
+$pretty--color-danger: #d9534f;
+$pretty--color-dark: #5a656b;
+
+// uh, boring z-index stuff, who cares.
+
+$pretty--z-index-back: 0;
+$pretty--z-index-between: 1;
+$pretty--z-index-front: 2;
+
+// nobody will change this.
+
+$pretty--debug: false;
+$pretty--dev-err: "Invalid input type!";
+
+.pretty input:checked ~ .state.p-primary label:after,
+.pretty.p-toggle .state.p-primary label:after {
+    background-color: #904296 !important;
+}
+/*
+ floating menu
+  */
+// this -- well, because this.
+* {
+    box-sizing: border-box;
+}
+
+// this makes a basic circle
+@mixin circle($param) {
+    width: $param;
+    height: $param;
+    border-radius: 50%;
+}
+
+// Brand Colour Palette
+$purple: #904296;
+$green: #1ef0a0;
+$wa-green: #25d366;
+$blue: #2937f0;
+$red: #d63384;
+
+// this is what I use to place the menu thing wherever I want
+.corner-container {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    z-index: 99999;
+}
+
+// this toggles the whole damn thing
+.menu-toggle {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: $wa-green;
+    box-shadow: 4px 4px 2px 1px rgba(#000, 0.2);
+
+    position: absolute;
+    z-index: 5;
+    bottom: 0;
+    right: 0;
+    display: table;
+
+    text-align: center;
+    line-height: 3;
+    color: #fff;
+
+    .mdi {
+        color: #fff;
+        display: table-cell;
+        vertical-align: middle;
+        transition: 0.4s;
+        font-size: xx-large;
+        padding: 0;
+        line-height: 1.5;
+    }
+
+    // Twist the plus so it looks like a close 'x'
+    &.open .mdi.mdi-whatsapp {
+        transform: rotate(135deg);
+    }
+}
+
+// Single Template buttons
+.btn-app {
+    width: 45rem;
+    height: auto;
+    border-radius: 0;
+    position: absolute;
+
+    background-color: transparent;
+    color: #fff;
+    text-align: right;
+    font-size: 1rem;
+    line-height: 1;
+    margin: 0;
+    display: flex;
+    justify-content: end;
+
+    .txt {
+        background: #fff;
+        color: var(--immopurple);
+        font-size: 1rem;
+        font-weight: bold;
+        line-height: 1.5;
+        display: inline-block;
+        margin-top: 0;
+        margin-right: -16px;
+        padding: 0.2rem 1.8rem;
+        border-radius: 5px;
+        border: 1px solid var(--immopurple);
+        box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .mdi {
+        border-radius: 50%;
+        border: 1px solid var(--immopurple);
+        display: inline-block;
+        line-height: 2;
+        font-size: 1rem;
+        color: #fff;
+        background: var(--immopurple);
+        padding: 0.1rem 0.6rem;
+        box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    strong {
+        font-size: 1.2rem;
+        color: $purple;
+    }
+}
+
+.widget-title {
+    background: transparent;
+    width: 25vw;
+    border-bottom: 3px solid var(--immopurple);
+
+    strong {
+        font-size: 1.3rem;
+        padding: 1rem 1rem;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    }
+}
+// add shadow only when templates are activated
+/*.open .btn-app {
+	box-shadow:4px 4px 2px 1px rgba(#000, 0.2);
+}*/
+
+// The most-popular apps in a circular thingo
+.menu-round {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+
+    .btn-app {
+        bottom: 0.25em;
+        right: 0.25em;
+        transition: 0.4s;
+    }
+
+    // position of templates when activated
+    &.open {
+        .btn-app:nth-of-type(1) {
+            right: 0.5em;
+            bottom: 4.25em;
+            transition-delay: 0.2s;
+        }
+        .btn-app:nth-of-type(2) {
+            right: 3.5em;
+            bottom: 3.5em;
+            transition-delay: 0.1s;
+        }
+        .btn-app:nth-of-type(3) {
+            right: 4.25em;
+            bottom: 0.5em;
+        }
+    }
+}
+
+// stacked template icons
+.menu-line {
+    position: absolute;
+    z-index: 2;
+    width: auto;
+    visibility: hidden;
+
+    .btn-app {
+        right: 0.5em;
+        transition: 0.3s;
+        transition-delay: 0.5s;
+    }
+
+    &.open {
+        // first one. add 3 to each subsequent template
+        $bottom: 4.25em;
+        $templates: 7;
+        visibility: visible;
+
+        .btn-app:nth-of-type(1) {
+            bottom: $bottom;
+        }
+
+        // align each template item on top of the next
+        @for $i from 1 through $templates {
+            .btn-app:nth-of-type(#{$i}) {
+                bottom: $bottom + 3 * $i;
+            }
+        }
+    }
+}

@@ -29,12 +29,12 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" aria-label="{{ __('Confirm Password') }}">
                                     {{ __('Confirm Password') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link" href="{{ route('password.request') }}" aria-label="{{ __('Forgot Your Password') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif

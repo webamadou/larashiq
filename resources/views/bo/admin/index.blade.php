@@ -1,95 +1,435 @@
-@extends('layouts.admin')
+@extends('layouts.admin_v3')
 
 @section('content')
-  <h1>The page's title</h1>
-  <div class="container">
-    <button type="button" class="btn btn-primary">Primary</button>
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-success">Success</button>
-    <button type="button" class="btn btn-danger">Danger</button>
-    <button type="button" class="btn btn-warning">Warning</button>
-    <button type="button" class="btn btn-info">Info</button>
-    <button type="button" class="btn btn-light">Light</button>
-    <button type="button" class="btn btn-dark">Dark</button>
-  </div>
-  <div class="m-3"></div>
-  <div class="container">
-    <div class="alert alert-primary" role="alert">
-      A simple primary alert—check it out!
+<div class="relative bg-immopurple md:pt-32 pb-32 pt-12">
+    <div class="px-4 md:px-10 mx-auto w-full">
+        <div>
+            <!-- Card stats -->
+            <div class="flex flex-wrap">
+                <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+                    <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                        <div class="flex-auto p-4">
+                            <div class="flex flex-wrap">
+                                <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
+                                    <h5 class="text-blueGray-400 uppercase font-bold text-xs">Les biens en Location</h5>
+                                    <span class="font-semibold text-xl text-blueGray-700">
+                                        {{App\Models\Property::where('acquisition_type', 2)->count()}}
+                                    </span>
+                                </div>
+                                <div class="relative w-auto pl-4 flex-initial">
+                                    <div class="text-white p-3 text-center inline-flex items-center justify-center
+                                    w-12 h-12 shadow-lg rounded-full bg-red-400">
+                                        <i class="fa fa-home"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-blueGray-400 mt-4">
+                                <span class="text-emerald-500 mr-2">
+                                  <i class="fa fa-arrow-up"></i> -
+                                </span>
+                                <span class="whitespace-nowrap">-</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+                    <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                        <div class="flex-auto p-4">
+                            <div class="flex flex-wrap">
+                                <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
+                                    <h5 class="text-blueGray-400 uppercase font-bold text-xs">Les biens en Vente</h5>
+                                    <span class="font-semibold text-xl text-blueGray-700">
+                                        {{App\Models\Property::where('acquisition_type', 1)->count()}}
+                                    </span>
+                                </div>
+                                <div class="relative w-auto pl-4 flex-initial">
+                                    <div class="text-white p-3 text-center inline-flex items-center justify-center
+                                    w-12 h-12 shadow-lg rounded-full bg-blue-400">
+                                        <i class="fa fa-home"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-blueGray-400 mt-4">
+                                <span class="text-emerald-500 mr-2">
+                                  <i class="fa fa-arrow-up"></i> -
+                                </span>
+                                <span class="whitespace-nowrap">-</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+                    <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                        <div class="flex-auto p-4">
+                            <div class="flex flex-wrap">
+                                <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
+                                    <h5 class="text-blueGray-400 uppercase font-bold text-xs">
+                                        Alerts
+                                    </h5>
+                                    <span class="font-semibold text-xl text-blueGray-700">{{\App\Models\Alert::where('active', 1)->count()}}</span>
+                                </div>
+                                <div class="relative w-auto pl-4 flex-initial">
+                                    <div class="text-white p-3 text-center inline-flex items-center justify-center
+                                    w-12 h-12 shadow-lg rounded-full bg-orange-400">
+                                        <i class="fa fa-bell"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-blueGray-400 mt-4">
+                                <span class="text-red-500 mr-2">
+                                  <i class="fa fa-arrow-up"></i> -
+                                </span>
+                                <span class="whitespace-nowrap"> - </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+                    <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                        <div class="flex-auto p-4">
+                            <div class="flex flex-wrap">
+                                <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
+                                    <h5 class="text-blueGray-400 uppercase font-bold text-xs">
+                                        Estimations
+                                    </h5>
+                                    <span class="font-semibold text-xl text-blueGray-700">{{\App\Models\Estimation::count()}}</span>
+                                </div>
+                                <div class="relative w-auto pl-4 flex-initial">
+                                    <div class="text-white p-3 text-center inline-flex items-center justify-center
+                                    w-12 h-12 shadow-lg rounded-full bg-purple-200">
+                                        <i class="fa fa-calculator"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-blueGray-400 mt-4">
+                                <span class="text-orange-500 mr-2">
+                                  <i class="fa fa-arrow-up"></i> -
+                                </span>
+                                <span class="whitespace-nowrap"> - </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="alert alert-secondary" role="alert">
-      A simple secondary alert—check it out!
-    </div>
-    <div class="alert alert-success" role="alert">
-      A simple success alert—check it out!
-    </div>
-    <div class="alert alert-danger" role="alert">
-      A simple danger alert—check it out!
-    </div>
-    <div class="alert alert-warning" role="alert">
-      A simple warning alert—check it out!
-    </div>
-    <div class="alert alert-info" role="alert">
-      A simple info alert—check it out!
-    </div>
-    <div class="alert alert-light" role="alert">
-      A simple light alert—check it out!
-    </div>
-    <div class="alert alert-dark" role="alert">
-      A simple dark alert—check it out!
-    </div>
-  </div>
-  <div class="mt-3">
-    <table id="table_id" class="display table table-striped">
-        <thead>
-            <tr> <th>Column 1</th> <th>Column 2</th> </tr>
-        </thead>
-        <tbody>
-            <tr> <td>Row 1 Data 1</td> <td>Row 1 Data 2</td> </tr>
-            <tr> <td>Row 2 Data 1</td> <td>Row 2 Data 2</td> </tr>
-            <tr> <td>Row 2 Data 1</td> <td>Row 2 Data 2</td> </tr>
-            <tr> <td>Row 2 Data 1</td> <td>Row 2 Data 2</td> </tr>
-            <tr> <td>Row 2 Data 1</td> <td>Row 2 Data 2</td> </tr>
-            <tr> <td>Row 2 Data 1</td> <td>Row 2 Data 2</td> </tr>
-            <tr> <td>Row 2 Data 1</td> <td>Row 2 Data 2</td> </tr>
-            <tr> <td>Row 2 Data 1</td> <td>Row 2 Data 2</td> </tr>
-        </tbody>
-    </table>
-  </div>
-  <div class="container mt-3"><hr></div>
-  <div class="container mt-3">
-    <form>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-      </div>
-      <div class="mb-3">
-        <label for="exampleName" class="form-label">Name</label>
-        <input type="nam" class="form-control" id="exampleName">
-      </div>
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
-      <div class="mb-3">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-        <label for="floatingTextarea2">Comments</label>
-      </div>
-      <div class="mb-3">
-        <label for="disabledTextInput" class="form-label">Disabled input</label>
-        <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
-      </div>
-      <div class="mb-3">
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
+</div>
+<div class="px-4 md:px-10 mx-auto w-full -m-24">
 
+    <div class="flex flex-wrap mt-4">
+        <div class="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
+            <div
+                class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded"
+            >
+                <div class="rounded-t mb-0 px-4 py-3 border-0">
+                    <div class="flex flex-wrap items-center">
+                        <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                            <h3 class="font-semibold text-base text-blueGray-700">
+                                Dernières demandes d'estimations
+                            </h3>
+                        </div>
+                        <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+                            <a href="{{route('bo.estimations.index')}}"
+                                class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                type="button">
+                                Voir la liste
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="block w-full overflow-x-auto">
+                    <!-- Projects table -->
+                    <table
+                        class="items-center w-full bg-transparent border-collapse"
+                    >
+                        <thead>
+                        <tr>
+                            <th
+                                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                Infos Clients
+                            </th>
+                            <th
+                                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                            >
+                                Type de biens
+                            </th>
+                            <th
+                                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                            >
+                                Détails
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($tenLastEstimations as $estimation)
+                        <tr>
+                            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                {{$estimation->user->fullName}}
+                            </td>
+                            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                {{$estimation->propertyType->name}}
+                            </td>
+                            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                {{"$estimation->rooms Pieces"}}<br> à {{"$estimation->address"}}
+                            </td>
+                        </tr>
+                        @endforeach
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="w-full xl:w-4/12 px-4">
+            <div
+                class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded"
+            >
+                <div class="rounded-t mb-0 px-4 py-3 bg-transparent">
+                    <div class="flex flex-wrap items-center">
+                        <div class="relative w-full max-w-full flex-grow flex-1">
+                            <h6
+                                class="uppercase text-blueGray-400 mb-1 text-xs font-semibold"
+                            >
+                                Performance
+                            </h6>
+                            <h2 class="text-blueGray-700 text-xl font-semibold">
+                                Total orders
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 flex-auto">
+                    <!-- Chart -->
+                    <div class="relative h-350-px">
+                        <canvas id="bar-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-wrap">
+        <div class="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
+            <div
+                class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-blueGray-700"
+            >
+                <div class="rounded-t mb-0 px-4 py-3 bg-transparent">
+                    <div class="flex flex-wrap items-center">
+                        <div class="relative w-full max-w-full flex-grow flex-1">
+                            <h6
+                                class="uppercase text-blueGray-100 mb-1 text-xs font-semibold"
+                            >
+                                Overview
+                            </h6>
+                            <h2 class="text-white text-xl font-semibold">
+                                Sales value
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 flex-auto">
+                    <!-- Chart -->
+                    <div class="relative h-350-px">
+                        <canvas id="line-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-full xl:w-4/12 px-4">
+            <div
+                class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded"
+            >
+                <div class="rounded-t mb-0 px-4 py-3 border-0">
+                    <div class="flex flex-wrap items-center">
+                        <div
+                            class="relative w-full px-4 max-w-full flex-grow flex-1"
+                        >
+                            <h3 class="font-semibold text-base text-blueGray-700">
+                                Social traffic
+                            </h3>
+                        </div>
+                        <div
+                            class="relative w-full px-4 max-w-full flex-grow flex-1 text-right"
+                        >
+                            <button
+                                class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                type="button" aria-label="See all"
+                            >
+                                See all
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="block w-full overflow-x-auto">
+                    <!-- Projects table -->
+                    <table
+                        class="items-center w-full bg-transparent border-collapse"
+                    >
+                        <thead class="thead-light">
+                        <tr>
+                            <th
+                                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                            >
+                                Referral
+                            </th>
+                            <th
+                                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                            >
+                                Visitors
+                            </th>
+                            <th
+                                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px"
+                            ></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
+                            >
+                                Facebook
+                            </th>
+                            <td
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                            >
+                                1,480
+                            </td>
+                            <td
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                            >
+                                <div class="flex items-center">
+                                    <span class="mr-2">60%</span>
+                                    <div class="relative w-full">
+                                        <div
+                                            class="overflow-hidden h-2 text-xs flex rounded bg-red-200"
+                                        >
+                                            <div
+                                                style="width: 60%"
+                                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500"
+                                            ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
+                            >
+                                Facebook
+                            </th>
+                            <td
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                            >
+                                5,480
+                            </td>
+                            <td
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                            >
+                                <div class="flex items-center">
+                                    <span class="mr-2">70%</span>
+                                    <div class="relative w-full">
+                                        <div
+                                            class="overflow-hidden h-2 text-xs flex rounded bg-emerald-200"
+                                        >
+                                            <div
+                                                style="width: 70%"
+                                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500"
+                                            ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
+                            >
+                                Google
+                            </th>
+                            <td
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                            >
+                                4,807
+                            </td>
+                            <td
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                            >
+                                <div class="flex items-center">
+                                    <span class="mr-2">80%</span>
+                                    <div class="relative w-full">
+                                        <div
+                                            class="overflow-hidden h-2 text-xs flex rounded bg-purple-200"
+                                        >
+                                            <div
+                                                style="width: 80%"
+                                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-purple-500"
+                                            ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
+                            >
+                                Instagram
+                            </th>
+                            <td
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                            >
+                                3,678
+                            </td>
+                            <td
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                            >
+                                <div class="flex items-center">
+                                    <span class="mr-2">75%</span>
+                                    <div class="relative w-full">
+                                        <div
+                                            class="overflow-hidden h-2 text-xs flex rounded bg-lightBlue-200"
+                                        >
+                                            <div
+                                                style="width: 75%"
+                                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-lightBlue-500"
+                                            ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
+                            >
+                                twitter
+                            </th>
+                            <td
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                            >
+                                2,645
+                            </td>
+                            <td
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                            >
+                                <div class="flex items-center">
+                                    <span class="mr-2">30%</span>
+                                    <div class="relative w-full">
+                                        <div
+                                            class="overflow-hidden h-2 text-xs flex rounded bg-orange-200"
+                                        >
+                                            <div
+                                                style="width: 30%"
+                                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500"
+                                            ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

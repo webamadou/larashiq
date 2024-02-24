@@ -21,11 +21,14 @@ class SideBar extends Component
         $this->menus = $this->buildMenu(Menu::whereNull('parent_id')->get());
     }
 
-    function buildMenu($menus, $html = '')
+    public function buildMenu($menus, $html = '')
     {
-        foreach($menus as $menu) {
+        foreach ($menus as $menu) {
             if ($menu->children->isNotEmpty()) {
-                $html .= '<li class="mb-1"><button class="align-items-center btn btn-toggle collapsed px-0 rounded text-lg-start w-100" data-bs-toggle="collapse" data-bs-target="#'.$menu->slug.'-collapse" aria-expanded="true"> '.$menu->name.' </button> <div class="collapse show" id="'.$menu->slug.'-collapse">
+                $html .= '<li class="mb-1">
+<button class="align-items-center btn btn-toggle collapsed px-0 rounded text-lg-start w-100"
+data-bs-toggle="collapse" data-bs-target="#'.$menu->slug.'-collapse" aria-expanded="true" aria-label="' . $menu->name . '"> '.$menu->name.' </button>
+<div class="collapse show" id="'.$menu->slug.'-collapse">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">';
                 foreach ($menu->children as $child) {
                     $html .= '<li class="mb-1"> <a href="'.$child->url.'"> '.$child->name.' </a> </li>';

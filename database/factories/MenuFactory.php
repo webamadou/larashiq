@@ -23,6 +23,7 @@ class MenuFactory extends Factory
             'name' => $this->faker->words(2, true),
             'parent_id' => $parent,
             'visible' => $this->faker->numberBetween(0, 1),
+            'menu_position' => array_rand(Menu::getMenuTypes()),
             'public' => $this->faker->boolean(),
         ];
     }
