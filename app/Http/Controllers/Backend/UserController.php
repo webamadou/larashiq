@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\DataTables\UsersDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Models\Role;
@@ -21,9 +22,9 @@ class UserController extends Controller
         $this->middleware(['role:'.Role::SUPER_ADMIN]);
     }
 
-    public function index()
+    public function index(UsersDataTable $dataTable)
     {
-        return view('bo.users.index');
+        return $dataTable->render('bo.users.index');
     }
 
     public function create(User $user): Factory|View|Application

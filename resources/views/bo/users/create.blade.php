@@ -1,4 +1,4 @@
-@extends('layouts.tw_admin_v2')
+@extends('layouts.admin_v3')
 
 @section('page-title')
     {{__('Ajouter un profile')}}
@@ -13,15 +13,14 @@
         <button type="button" class="btn-close box-content w-4 h-4 p-1 ml-auto text-yellow-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
-<div class="w-full px-8 py-4 mx-auto">
-    <a href="{{route('bo.users.index')}}"
-       class="inline-block px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded-none
-       shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none
-       focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out">
-        <i class="fa fa-arrow-circle-left"></i> Retour à la liste
-    </a>
+<div class="w-full px-8 py-4">
+    <p>
+        <a href="{{route('bo.users.index')}}" class="btn btn-gradient-primary p-2">
+            <i class="mdi mdi-chevron-double-left"></i> Revenir à la liste
+        </a>
+    </p>
 
-    <div class="w-6/12 mx-auto bg-immogray1 py-2.5 px-8 my-6">
+    <div class="w-75 justify-content-center d-flex m-auto py-2.5 px-8 my-6 bo-form">
         {{ Aire::open()->route('bo.users.store')}}
             @include('bo.users.air_form')
         {{ Aire::close() }}

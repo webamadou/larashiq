@@ -748,12 +748,14 @@ ul {
     padding: 0;
     list-style: none;
 }
-@font-face {
+/*@font-face {
     font-family: "Aileron";
-    src: url("../assets/fonts/aileron/Aileron-Black.otf");
-    src: url("../assets/fonts/aileron/Aileron-Regular.otf");
-    src: url("../assets/fonts/aileron/Aileron-Bold.otf");
-}
+    src: url("../fonts/aileron/Aileron-Black.otf");
+    src: url("../fonts/aileron/Aileron-Black.otf");
+    src: url("../fonts/aileron/Aileron-Regular.otf");
+    src: url("../fonts/aileron/Aileron-Bold.otf");
+    font-display: swap;
+}*/
 *:focus,
 button:focus,
 .btn-check:focus + .btn,
@@ -5068,9 +5070,7 @@ fieldset:disabled .btn {
     font-size: 0.92rem;
 }
 .menu-logo img {
-    max-width: 150px;
-    height: 100%;
-    max-height: 69.9px;
+    width: auto;
     margin: 0;
 }
 
@@ -5983,7 +5983,7 @@ li.has-megamenu:hover .immo-chevron {
 }
 
 .accordion-body {
-    padding: 1rem 1.25rem;
+    padding: 0.1rem 0.25rem;
 }
 
 .accordion-flush .accordion-collapse {
@@ -9058,6 +9058,7 @@ li.has-megamenu:hover .immo-chevron {
 .text-danger {
     --bs-text-opacity: 1;
     color: rgba(var(--bs-danger-rgb), var(--bs-text-opacity)) !important;
+    font-size: 0.7rem;
 }
 
 .text-light {
@@ -9668,7 +9669,7 @@ footer a:focus {
     position: relative;
 }
 .prop-vignettes-wrapper.with-carousel {
-    background: url(../images/vignette_bg.png);
+    background: transparent;
     width: 100%;
     min-height: 400px;
     background-repeat-x: repeat;
@@ -9813,6 +9814,11 @@ footer a:focus {
 }
 .sidebar-posts-wrapper .post-wrapper {
     position: relative;
+}
+.sidebar-posts-wrapper .post-wrapper:nth-child(2n) {
+    border: 1px solid var(--immogray1);
+    border-left: none;
+    border-right: none;
 }
 .sidebar-posts-wrapper .post-content {
     position: relative;
@@ -10045,7 +10051,7 @@ footer a:focus {
     position: relative;
 }
 .prop-vignette .actions-wrapper .btn {
-    font-size: x-small;
+    font-size: small;
     font-weight: 300;
     border-radius: 0;
     letter-spacing: 1px;
@@ -10279,7 +10285,7 @@ article {
     height: 40vh;
     display: flex;
     align-items: center;
-    background: url("../images/vignette_bg.png");
+    background: var(--immogray2);
 }
 .no-content-wrapper {
     padding: 2rem 2rem;
@@ -10808,9 +10814,6 @@ h2.section_title {
     background: var(--immogray1);
     border-bottom: 3px solid;
 }
-#myTabContent h3 {
-    color: #fff !important;
-}
 .form-elements #localisation-results {
     margin-top: 4rem;
 }
@@ -10847,11 +10850,12 @@ h2.section_title {
     box-shadow: 0.1px 0.2px 4px #ac96ae;
     border: 0.2px solid #c58dc9;
 }
-h1.page-title {
-    margin: 3rem 0 0;
+.page-title {
+    margin: 1rem 0 0;
     color: var(--bs-gray-700);
     line-height: 2;
     text-align: center;
+    font-size: 1.5rem;
 }
 #metas ul {
     display: flex;

@@ -16,8 +16,9 @@
     <!-- Datatable CDN -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js" defer></script>
-    <script src="{{ asset('js/tw_app.js') }}" defer></script>
-    <script src="{{ asset('js/tw_app_v2.js') }}" defer></script>
+    <script src="{{ asset('js/app_v3.js') }}" defer></script>
+    <!-- Alpine CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @livewireStyles
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -31,7 +32,7 @@
     <!-- datatables CDN -->
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
 
-    <link href="{{ mix('css/tw_custom_app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ mix('css/bundle_style_v3.css') }}" rel="stylesheet">
     <link href="{{ mix('css/style_v3.css') }}" rel="stylesheet">
 </head>
@@ -78,5 +79,23 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
+  @stack('scripts')
+    @livewireScripts
+    <script defer>
+        const modalID = document.getElementById("communDeleteModal");
+        const confirmationLinks = document.getElementsByClassName("confirmDeletion");
+
+        function confirmationModal()
+        {
+            return {
+                whenDeleteClicked: function(event) {
+                    event.stopPropagation();
+                    document.getElementById("modalConfirmationTitle").innerHTML = event.target.getAttribute('data-title');
+                    document.getElementById("modalConfirmationBody").innerHTML = event.target.getAttribute('data-content');
+                    modalID.getElementsByTagName("form")[0].setAttribute("action", event.target.getAttribute('data-action'));
+                }
+            }
+        }
+    </script>
   </body>
 </html>

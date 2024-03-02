@@ -1,8 +1,7 @@
-@extends('layouts.tw_admin_v2')
+@extends('layouts.admin_v3')
 
 @section('page-title')
     {{__('Liste des utilisateurs')}}
-    <x-audit-link model-name="User" />
 @endsection
 @section('content')
 <div class="flex space-x-2 justify-center">
@@ -14,6 +13,11 @@
     </a>
 </div>
 <div class="w-full px-6 py-4" x-data="confirmationModal()">
-    <livewire:datatable-of-users />
+    {{ $dataTable->table() }}
 </div>
 @endsection
+
+
+@push('scripts')
+    {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
+@endpush

@@ -9,21 +9,6 @@ mix
     .sass("resources/sass/app.scss", "public/css")
     .styles(["resources/css/custom.css", "resources/css/app.css", "resources/css/responsive.css",], "public/css/styles.css")
 
-    /* Commun BO settings */
-    .postCss("resources/css/tailwindcss.css", "public/css/tw_app.css", [require("tailwindcss"),])
-
-     /* Settings bo v1 */
-    .js("resources/js/tailwind_app.js", "public/js/tw_app.js")
-    .sass("resources/sass/tailwind.scss", "public/css/tw_custom_app.css")
-
-     /* Settings bo v2 */
-    .js("resources/js/bo/v2/scripts.js", "public/js/tw_app_v2.js")
-    .sass("resources/css/bo/v2/styles/app.scss", "public/css/tw_app_v2.css")
-    .postCss("resources/css/bo/v2/styles/tailwind.css", "public/css/tw_custom_app_v2.css")
-    .postCss("resources/css/bo/v2/styles/app.css", "public/css/tw_app_v2.css", [
-        require("tailwindcss"),
-    ])
-
     /* Setting bo v3 */
     .js([
         'resources/assets/v3/vendors/js/vendor.bundle.base.js',

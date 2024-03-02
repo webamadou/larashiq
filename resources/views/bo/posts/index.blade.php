@@ -1,8 +1,7 @@
-@extends('layouts.tw_admin_v2')
+@extends('layouts.admin_v3')
 
 @section('page-title')
     {{__('Liste des articles')}}
-    <x-audit-link model-name="Post" />
 @endsection
 @section('content')
 <div class="flex space-x-2 justify-center">
@@ -12,6 +11,6 @@
     </a>
 </div>
 <div class="w-full px-6 py-4" x-data="confirmationModal()">
-    <livewire:datatable-of-posts />
+
 </div>
 @endsection

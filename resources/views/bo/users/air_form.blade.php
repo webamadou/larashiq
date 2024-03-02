@@ -7,7 +7,7 @@
 	->required()
 	->type('text')
 	->value(old('first_name', $user->first_name))
-	->addClass('rounded-sm shadow-sm border-immogray2 rounded-b-lg')
+	->addClass('form-control')
 	}}
 
 {{ Aire::input('name', "Le nom de l'utilisateur *")
@@ -15,7 +15,7 @@
 	->required()
 	->type('text')
 	->value(old('name', $user->name))
-	->addClass('rounded-sm shadow-sm border-immogray2 rounded-b-lg')
+	->addClass('form-control')
 	}}
 
 {{ Aire::input('email', "L'adresse email *")
@@ -23,7 +23,7 @@
 	->required()
 	->type('email')
 	->value(old('email', $user->email))
-	->addClass('rounded-sm shadow-sm border-immogray2 rounded-b-lg')
+	->addClass('form-control')
 	}}
 
 {{ Aire::radioGroup(['0' => 'Femme', '1' => 'Homme'], 'gender')
@@ -31,25 +31,24 @@
 	->defaultValue(old('gender', $user->gender ?? ''))
 	->required()
     }}
-
+<div style="background-color: var(--immogray2)"></div>
 {{ Aire::checkboxGroup($roles, 'roles', 'Attribuer un role *')
     ->value(old('roles', $user->getRoleNames()->toArray()))
     ->helpText("Vous pouvez attribuer un ou plusieurs rôles à un utilisateur.")
-    ->addClass('bg-immogray2')
     }}
-
+<hr>
 {{ Aire::input('address', "L'adresse")
 	->id('address')
 	->type('text')
 	->value($user->address)
-	->addClass('rounded-sm shadow-sm border-immogray2 rounded-b-lg')
+	->addClass('form-control')
 	}}
 
 {{ Aire::input('phone_number', "Numéro de téléphone")
 	->id('phone_number')
 	->type('text')
 	->value($user->phone_number)
-	->addClass('rounded-sm shadow-sm border-immogray2 rounded-b-lg')
+	->addClass('form-control')
 	}}
 
 {{ Aire::input('birth_date', "Date de naisance")
@@ -57,14 +56,14 @@
 	->type('text')
 	->addClass('datepicker_element')
 	->value($user->birth_date)
-	->addClass('rounded-sm shadow-sm border-immogray2 rounded-b-lg')
+	->addClass('form-control')
 	}}
 
 {{ Aire::input('birth_place', "Lieu de naissance")
 	->id('birth_place')
 	->type('text')
 	->value($user->birth_place)
-	->addClass('rounded-sm shadow-sm border-immogray2 rounded-b-lg')
+	->addClass('form-control')
 	}}
 
 {{ Aire::submit('Enregistrer') }}

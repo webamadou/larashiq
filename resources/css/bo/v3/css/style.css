@@ -14470,3 +14470,8 @@ a.nav-link.root-nav:after {
   width: 100%;
   height: 2px;
 }
+.bo-form label {
+    font-size: 1.3rem;
+    text-shadow: none;
+    display: block;
+}
