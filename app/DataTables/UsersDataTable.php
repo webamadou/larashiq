@@ -69,17 +69,26 @@ class UsersDataTable extends DataTable
                         Button::make('add'),
                         Button::make('excel'),
                         // Button::make('csv'),
-                        Button::make('pdf'),
+                        // Button::make('pdf'),
                         //Button::make('print'),
                         Button::make('reset'),
                         //Button::make('reload')
                     ])
+                    ->parameters([
+                        'pageLength' => 30,
+                        'itemsPerPage', [10, 25, 50, 100]
+                    ])
                     ->language([
-                        'sEmptyTable' => __('datatable.sEmptyTable'),
-                        'sInfo'       => __('datatable.sInfo'),
+                        'sEmptyTable'   => __('datatable.sEmptyTable'),
+                        'sInfo'         => __('datatable.sInfo'),
                         'sSearch'       => __('datatable.sSearch'),
-                        'sReset'       => __('datatable.sReset'),
-                        // Add more translation strings as needed
+                        'sReset'        => __('datatable.sReset'),
+                        "oPaginate"     => [
+                            "sFirst"    => __('datatable.sFirst'),
+                            "sLast"     => __('datatable.sLast'),
+                            "sNext"     => __('datatable.sNext'),
+                            "sPrevious" => __('datatable.sPrevious'),
+                        ],
                     ])
             ;
     }

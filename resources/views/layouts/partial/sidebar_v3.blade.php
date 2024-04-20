@@ -113,6 +113,13 @@ $homeStaging = Page::where('slug', 'home_staging')->select('id', 'name', 'slug')
         </li>
 
         <li class="nav-item position-relative">
+            <a class="nav-link root-nav" href="{{route('bo.users.index')}}">
+                <span class="menu-title">Profils</span>
+                <i class="mdi mdi-account-group menu-icon"></i>
+            </a>
+        </li>
+
+        <li class="nav-item position-relative">
             <a class="nav-link root-nav" data-bs-toggle="collapse" href="#configurations" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Configurations</span>
                 <i class="mdi mdi-chevron-down"></i>

@@ -1,110 +1,78 @@
-@extends('layouts.tw_admin_v2')
+@extends('layouts.admin_v3')
 
 @section('content')
-    <a href="{{route('bo.users.index')}}"
-       class="inline-block px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded-none
-       shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none
-       focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out">
-        <i class="fa fa-arrow-circle-left"></i> Retour à la liste</a>
-    <div class="container mx-auto my-5 p-5">
-        <div class="md:flex no-wrap md:-mx-2 ">
-            <!-- Left Side -->
-            <div class="w-full md:w-3/12 md:mx-2">
-                <!-- Profile Card -->
-                <div class="bg-white p-3 border-t-4 border-immopurple">
-                    <div class="image overflow-hidden">
-                        <img class="h-auto w-full mx-auto"
-                             src="{{asset('images/profile_placeholder.jpeg')}}"
-                             alt="">
+    <section class="h-100 gradient-custom-2">
+        <a href="{{route('bo.users.index')}}" class="btn btn-success">
+            <i class="mdi mdi-chevron-left"></i> Retour à la liste
+        </a>
+        <div class="container py-0 h-100">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col col-lg-9 col-xl-7">
+                    <div class="card">
+                    <div class="rounded-top text-white d-flex flex-row bg-linkedin" style="height:200px;">
+                        <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+                        <img src="{{asset('images/profile_placeholder.jpeg')}}"
+                            alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                            style="width: 150px; z-index: 1">
+                        <form action="" style="z-index: 1" action="{{ route('bo.users.destroy',$user) }}">
+                            @csrf
+                            @method('DELETE')
+                            <a href="{{ route('bo.users.edit', $user) }}" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary" data-mdb-ripple-color="dark">
+                                <i class="mdi mdi-pencil-box-outline"></i> Editer</button>
+                            </a>
+                        </form>
+                        </div>
+                        <div class="ms-3" style="margin-top: 130px;">
+                        <h5>{{$user->fullName}}</h5>
+                        <p>{{$user->getRoleNames()->implode(',')}}</p>
+                        </div>
                     </div>
-                    <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{$user->fullName}}</h1>
-                    <h3 class="text-gray-600 font-lg text-semibold leading-6">{{'Roles'}}</h3>
-                    <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">
-                        {{$user->getRoleNames()->implode(',')}}
-                    </p>
-                    <ul
-                        class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
-                        <li class="flex items-center py-3">
-                            <span>Statut</span>
-                            <span class="ml-auto"><span
-                                    class="bg-green-500 py-1 px-2 text-white text-sm">Active</span></span>
-                        </li>
-                        <li class="flex items-center py-3">
-                            <span> - </span>
-                            <span class="ml-auto">Inscrit {{$user->memberSince}}</span>
-                        </li>
-                        <li>
-                            <form action="{{ route('bo.users.destroy',$user) }}" method="Post"  class="flex items-center py-3">
-                                @csrf
-                                @method('DELETE')
-                                <span> <a href="{{route('bo.users.edit', $user)}}">
-                                        <i class="fa fa-pencil"></i> Editer</a></span>
-                                <span class="ml-auto">
-                                    <button type="submit" class="text-red-600" aria-label="Supprimer">
-                                        <i class="fa fa-trash"></i> Supprimer</button>
-                                </span>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-                <!-- End of profile card -->
-                <div class="my-4"></div>
-            </div>
-            <!-- Right Side -->
-            <div class="w-full md:w-9/12 mx-2 h-64">
-                <!-- Profile tab -->
-                <!-- About Section -->
-                <div class="bg-white p-3 shadow-sm rounded-sm">
-                    <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
-                        <span clas="text-green-500">
-                            <i class="fa fa-info-circle text-immopurple fa-2x"></i>
-                        </span>
-                        <span class="tracking-wide text-immopurple">Infos du profil</span>
+                    <div class="p-4 text-black" style="background-color: #f8f9fa;">
+                        <div class="d-flex justify-content-end text-center py-1">
+                        <div>
+                            <p class="mb-1 h5">-</p>
+                            <p class="small text-muted mb-0">-</p>
+                        </div>
+                        <div class="px-3">
+                            <p class="mb-1 h5">-</p>
+                            <p class="small text-muted mb-0">-</p>
+                        </div>
+                        <div>
+                            <p class="mb-1 h5">-</p>
+                            <p class="small text-muted mb-0">-</p>
+                        </div>
+                        </div>
                     </div>
-                    <div class="text-gray-700">
-                        <div class="grid md:grid-cols-2 text-sm">
-                            <div class="grid grid-cols-2 bg-immogray1">
-                                <div class="px-4 py-2"><span class="font-semibold
-                                pr-4">Prénom:</span>{{$user->first_name}}</div>
+                    <div class="card-body p-4 text-black">
+                        <div class="mb-5">
+                        <h2 class="lead fw-normal mb-1">Infos du profil</h2>
+                        <div class="p-4" style="background-color: #f8f9fa;">
+                            <div class="px-4 py-2">
+                                <b>Prénom : </b>{{$user->first_name}}
                             </div>
-                            <div class="grid grid-cols-2 items-start bg-immogray1">
-                                <div class="px-4 py-2"><span class="font-semibold pr-4">Nom:</span>{{$user->name}}</div>
+                            <div class="px-4 py-2">
+                                <b>Nom : </b>{{$user->name}}
                             </div>
-                            <div class="grid grid-cols-2 bg-white">
-                                <div class="px-4 py-2"><span class="font-semibold pr-4">Genre:</span>
-                                    {!! $user->displayGender !!}</div>
+                            <div class="px-4 py-2">
+                                <b>Genre : </b> {!! $user->displayGender !!}
                             </div>
-                            <div class="grid grid-cols-2 bg-white">
-                                <div class="px-4 py-2"><span class="font-semibold pr-4">N° téléphone:</span>{{$user->phone_number}}</div>
+                            <div class="px-4 py-2">
+                                <b>N° téléphone : </b>{{$user->phone_number}}
                             </div>
-                            <div class="grid grid-cols-2 bg-immogray2">
-                                <div class="px-4 py-2"><span class="font-semibold pr-4">Adresse
-                                        actuelle:</span>{{$user->address}}</div>
+                            <div class="px-4 py-2">
+                                <b>Adresse
+                                        actuelle : </b>{{$user->address}}
                             </div>
-                            <div class="grid grid-cols-2 bg-immogray2">
-                                <div class="px-4 py-2"><span class="font-semibold pr-4">Email:</span>{{$user->email}}</div>
+                            <div class="px-4 py-2">
+                                <b>Email : </b>{{$user->email}}
                             </div>
-                            <div class="grid grid-cols-2">
-                                <div class="px-4 py-2"><span class="font-semibold pr-4">
-                                        Date de naissance:</span>{{$user->birth_date}}
-                                </div>
+                            <div class="px-4 py-2">
+                                <b>Date de naissance : </b>{{$user->birth_date}}
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- End of about section -->
-
-                <div class="my-4"></div>
-
-                <!-- liste des derniers actions du user -->
-                <div class="bg-white p-3 shadow-sm rounded-sm">
-                    <h3 class="text-immopurple text-center font-semibold p-3 my-4">Interventions</h3>
-                    <div class="">
-                        <div class="text-center text-immogray2">Aucune pour le moment</div>
-                        <div></div>
-                    </div>
-                </div>
             </div>
         </div>
-    </div>
+    </section>
 @endsection

@@ -14475,3 +14475,17 @@ a.nav-link.root-nav:after {
     text-shadow: none;
     display: block;
 }
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  padding: 0.1em 0.1em;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  color: white !important;
+  border: transparent;
+  background: transparent;
+}
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: var(--immopurple);
+  border-color: var(--immoborderpurple);
+}

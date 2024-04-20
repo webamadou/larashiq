@@ -1,57 +1,58 @@
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-
-{{ Aire::input('first_name', "Le prenom de l'utilisateur *")
+<label for="first_name" class="title">Le prenom de l'utilisateur *</label>
+{{ Aire::input('first_name')
 	->id('first_name')
 	->required()
 	->type('text')
 	->value(old('first_name', $user->first_name))
 	->addClass('form-control')
 	}}
-
-{{ Aire::input('name', "Le nom de l'utilisateur *")
+<label for="name" class="title">Le nom de l'utilisateur *</label>
+{{ Aire::input('name')
 	->id('name')
 	->required()
 	->type('text')
 	->value(old('name', $user->name))
 	->addClass('form-control')
 	}}
-
-{{ Aire::input('email', "L'adresse email *")
+<label for="email" class="email">L'adresse email *</label>
+{{ Aire::input('email')
 	->id('email')
 	->required()
 	->type('email')
 	->value(old('email', $user->email))
 	->addClass('form-control')
 	}}
-
+<label for="gender" class="title"> Genre</label>
 {{ Aire::radioGroup(['0' => 'Femme', '1' => 'Homme'], 'gender')
-	->label('Genre')
 	->defaultValue(old('gender', $user->gender ?? ''))
 	->required()
     }}
-<div style="background-color: var(--immogray2)"></div>
-{{ Aire::checkboxGroup($roles, 'roles', 'Attribuer un role *')
-    ->value(old('roles', $user->getRoleNames()->toArray()))
-    ->helpText("Vous pouvez attribuer un ou plusieurs rôles à un utilisateur.")
-    }}
+<div style="background-color: var(--immogray2)" class="p-2">
+	<label for="roles" class="title">Attribuer un role *</label>
+	{{ Aire::checkboxGroup($roles, 'roles')
+		->value(old('roles', $user->getRoleNames()->toArray()))
+		->helpText("Vous pouvez attribuer un ou plusieurs rôles à un utilisateur.")
+		}}
+</div>
 <hr>
-{{ Aire::input('address', "L'adresse")
+<label for="address" class="title">L'adresse</label>
+{{ Aire::input('address')
 	->id('address')
 	->type('text')
 	->value($user->address)
 	->addClass('form-control')
 	}}
 
-{{ Aire::input('phone_number', "Numéro de téléphone")
+<label for="phone_number" class="title">Numéro de téléphone</label>
+{{ Aire::input('phone_number')
 	->id('phone_number')
 	->type('text')
 	->value($user->phone_number)
 	->addClass('form-control')
 	}}
 
-{{ Aire::input('birth_date', "Date de naisance")
+<label for="birth_date" class="title">Date de naisance</label>
+{{ Aire::input('birth_date')
 	->id('birth_date')
 	->type('text')
 	->addClass('datepicker_element')
@@ -59,14 +60,15 @@
 	->addClass('form-control')
 	}}
 
-{{ Aire::input('birth_place', "Lieu de naissance")
+<label for="birth_place" class="title">Lieu de naissance</label>
+{{ Aire::input('birth_place')
 	->id('birth_place')
 	->type('text')
 	->value($user->birth_place)
 	->addClass('form-control')
 	}}
 
-{{ Aire::submit('Enregistrer') }}
+{{ Aire::submit('Enregistrer')->addClass('btn btn-primary float-end') }}
 
 <script defer>
   $( function() {

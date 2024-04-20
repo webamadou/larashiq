@@ -1,6 +1,4 @@
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
 
 <div><p class="text-red-500 my-4 italic text-xs">Les champs avec * sont obligatoires</p></div>
 <x-form-group label="Le prenom de l'utilisateur *" name="first_name" class="text-2xl">
