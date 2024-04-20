@@ -112,7 +112,7 @@ return [
     'starts_with' => ':attribute must start with one of following: :values.',
     'string' => ':attribute must be a string.',
     'timezone' => ':attribute must be a valid timezone.',
-    'unique' => ':attribute has already been taken.',
+    'unique' => 'Cette valeur pour le champ :attribute est déjà utilisée.',
     'uploaded' => ':attribute échec du chargement. Vérifiez la taille et l\'extension du fichier.',
     'url' => ':attribute must be a valid URL.',
     'uuid' => ':attribute must be a valid UUID.',

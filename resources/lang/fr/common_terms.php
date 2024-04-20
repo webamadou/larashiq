@@ -36,5 +36,7 @@ return [
     'save_alert' => "Enregistrer mon alerte",
     'alerte_summary' => "Résumé de votre alerte",
     'yes_no_1' => "Oui",
-    'yes_no_0' => "Non"
+    'yes_no_0' => "Non",
+    'backToList' => 'Retour vers la liste',
+    'upload_image_helptext' => "Vous pouvez sélectionner une ou plusieurs images.\nAssurez-vous que la taille de vos fichier ne dépasse pas 2Mo. Si vous devez télécharger plusieurs images volumineuses, il est préférable de les télécharger une par une.",
 ];

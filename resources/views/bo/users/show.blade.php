@@ -3,7 +3,7 @@
 @section('content')
     <section class="h-100 gradient-custom-2">
         <a href="{{route('bo.users.index')}}" class="btn btn-success">
-            <i class="mdi mdi-chevron-left"></i> Retour à la liste
+            <i class="mdi mdi-chevron-left"></i> {{ __('common_terms.backToList') }}
         </a>
         <div class="container py-0 h-100">
             <div class="row d-flex justify-content-center align-items-center">

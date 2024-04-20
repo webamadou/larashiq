@@ -32,7 +32,7 @@
 <div class="flex items-center justify-between w-100">
 	<div class="w-100 mx-2" style="width: 100%;">
 		{{Aire::file('images', 'Image de la page')
-			->helpText(__("posts.upload_image_helptext"))
+			->helpText(__("common_terms.upload_image_helptext"))
 		}}
 	</div>
     @if ($post->image)
@@ -40,5 +40,6 @@
     @endif
 </div>
 <div class="flex flex-column items-center justify-between w-100">
-	{{ Aire::submit('Enregistrer') }}
+	{{ Aire::submit('Enregistrer')
+			->addClass('btn btn-primary mt-3') }}
 </div>

@@ -89,8 +89,7 @@ class UsersDataTable extends DataTable
                             "sNext"     => __('datatable.sNext'),
                             "sPrevious" => __('datatable.sPrevious'),
                         ],
-                    ])
-            ;
+                    ]);
     }
 
     /**

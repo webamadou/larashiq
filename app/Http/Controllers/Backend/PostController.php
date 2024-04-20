@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\DataTables\PostsDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
@@ -21,13 +22,9 @@ class PostController extends Controller
         $this->middleware(['role:'.Role::SUPER_ADMIN.'|'.Role::ADMIN.'|'.Role::EDITOR]);
     }
 
-    /**
-     * Display a listing of the resource.
-     * @return Factory|View|Application
-     */
-    public function index():Factory|View|Application
+    public function index(PostsDataTable $dataTable)
     {
-        return view('bo.posts.index');
+        return $dataTable->render('bo.posts.index');
     }
 
     /**

@@ -135,5 +135,6 @@
           }
       }
   </script>
+    <x-head.tinymce-config/>
   </body>
 </html>

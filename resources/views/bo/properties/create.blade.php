@@ -7,7 +7,7 @@
 <div class="w-full px-8 py-4 mx-auto">
     <a href="{{route('bo.properties.index')}}"
        class="inline-block mx-2 px-6 py-2.5 bg-green-600 text-white text-xs rounded-none">
-        <i class="fa fa-arrow-circle-left"></i> Retour à la liste
+        <i class="fa fa-arrow-circle-left"></i> {{ __('common_terms.backToList') }}
     </a>
 
     <div class="w-full mx-auto mt-4 bg-immogray1 py-2.5 px-8">

@@ -11971,3 +11971,9 @@ a.nav-link.root-nav:after {
   background-color: var(--immopurple);
   border-color: var(--immoborderpurple);
 }
+li.text-red-500.font-bold {
+  font-size: 1rem;
+  font-weight: thin;
+  color: var(--immopink);
+  letter-spacing: 1px;
+}

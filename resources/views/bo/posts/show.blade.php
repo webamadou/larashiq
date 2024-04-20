@@ -1,9 +1,14 @@
-@extends('layouts.tw_admin_v2')
+@extends('layouts.admin_v3')
 
 @section('content')
+<section class="h-100">
     <a href="{{route('bo.posts.index')}}"
-       class="inline-block px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded-none">
-        <i class="fa fa-arrow-circle-left"></i> Retour à la liste
+       class="btn btn-success">
+        <i class="mdi mdi-chevron-left"></i> {{ __('common_terms.backToList') }}
+    </a>
+    <a href="{{route('bo.posts.edit', $post)}}"
+       class="btn btn-primary">
+        <i class="mdi mdi-pencil"></i> Editer
     </a>
     <div class="container mx-auto my-5 p-5">
         <div class="md:flex no-wrap md:-mx-2 ">
@@ -26,4 +31,5 @@
             </div>
         </div>
     </div>
+</section>
 @endsection

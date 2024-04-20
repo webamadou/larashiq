@@ -11,6 +11,10 @@
     </a>
 </div>
 <div class="w-full px-6 py-4" x-data="confirmationModal()">
-
+    {{ $dataTable->table() }}
 </div>
 @endsection
+
+@push('scripts')
+    {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
+@endpush

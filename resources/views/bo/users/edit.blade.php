@@ -8,7 +8,7 @@
 <section class="w-full h-full mb-5">
     <div class="py-3">
         <a href="{{route('bo.users.index')}}" class="btn btn-success">
-            <i class="mdi mdi-chevron-left"></i> Retour à la liste
+            <i class="mdi mdi-chevron-left"></i> {{ __('common_terms.backToList') }}
         </a>
         <a href="{{route('bo.users.show', $user)}}" class="btn btn-default">
             <i class="mdi mdi-information"></i> Afficher les infos
